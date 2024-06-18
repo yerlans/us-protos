@@ -18,19 +18,18 @@ service AuthService {
 
 // RegisterRequest is the request message for the Register RPC.
 message RegisterRequest {
-  string username = 1;
+  string email = 1;
   string password = 2;
-  string email = 3;
 }
 
 // RegisterResponse is the response message for the Register RPC.
 message RegisterResponse {
-  string userId = 1;
+  int32 userId = 1;
 }
 
 // LoginRequest is the request message for the Login RPC.
 message LoginRequest {
-  string username = 1;
+  string email = 1;
   string password = 2;
 }
 
@@ -46,7 +45,6 @@ message ValidateTokenRequest {
 
 // ValidateTokenResponse is the response message for the ValidateToken RPC.
 message ValidateTokenResponse {
-  string username = 1;
+  string email = 1;
   string userId = 2;
-  string role = 3;
 }
