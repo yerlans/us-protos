@@ -1,4 +1,4 @@
-module github.com/yerlans/us-protos
+module github.com/yerlans/us-protos/v1
 
 go 1.21.1
 
