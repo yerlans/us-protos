@@ -6,11 +6,26 @@ option go_package = "./auth-microservice";
 
 // AuthService defines the authentication service.
 service AuthService {
+  // Register registers a new user and returns a confirmation.
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+
   // Login authenticates the user and returns a JWT token.
   rpc Login(LoginRequest) returns (LoginResponse) {}
 
   // ValidateToken validates the JWT token and returns user information.
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {}
+}
+
+// RegisterRequest is the request message for the Register RPC.
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+  string email = 3;
+}
+
+// RegisterResponse is the response message for the Register RPC.
+message RegisterResponse {
+  string userId = 1;
 }
 
 // LoginRequest is the request message for the Login RPC.
