@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "./auth-microservice";
+
+// AuthService defines the authentication service.
+service AuthService {
+  // Login authenticates the user and returns a JWT token.
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+
+  // ValidateToken validates the JWT token and returns user information.
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {}
+}
+
+// LoginRequest is the request message for the Login RPC.
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+// LoginResponse is the response message for the Login RPC.
+message LoginResponse {
+  string token = 1;
+}
+
+// ValidateTokenRequest is the request message for the ValidateToken RPC.
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+// ValidateTokenResponse is the response message for the ValidateToken RPC.
+message ValidateTokenResponse {
+  string username = 1;
+  string userId = 2;
+  string role = 3;
+}
